@@ -1,0 +1,37 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+body {
+    font-family: 'Figtree', sans-serif;
+    background-color: #f3f4f6;
+}
+
+.hover-shadow {
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Native <button> elements styled only with a .link-* color utility (e.g. destructive form
+   actions that must POST, so they can't be <a> tags) need their default browser button
+   chrome stripped to actually look like a plain text link. */
+button.link-primary,
+button.link-secondary,
+button.link-danger,
+button.link-success,
+button.link-warning {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Fixed max-widths matching the Tailwind max-w-* scale this project was designed around. */
+.mw-sm { max-width: 24rem; }
+.mw-2xl { max-width: 42rem; }
+.mw-3xl { max-width: 48rem; }
+.mw-4xl { max-width: 56rem; }
+.mw-5xl { max-width: 64rem; }
+.mw-6xl { max-width: 72rem; }
+.mw-7xl { max-width: 80rem; }
