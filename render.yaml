@@ -4,7 +4,7 @@ services:
     runtime: docker
     plan: free
     dockerfilePath: ./Dockerfile
-    healthCheckPath: /login
+    healthCheckPath: /up
     envVars:
       - key: APP_NAME
         value: LigaManager
@@ -16,6 +16,10 @@ services:
         sync: false
       - key: APP_URL
         sync: false
+      - key: APP_LOCALE
+        value: es
+      - key: APP_FALLBACK_LOCALE
+        value: es
       - key: LOG_CHANNEL
         value: stderr
       - key: DB_CONNECTION

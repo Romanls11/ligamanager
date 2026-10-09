@@ -15,10 +15,13 @@ WORKDIR /app
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 COPY . .
-RUN composer dump-autoload --optimize --no-dev
+RUN composer dump-autoload --optimize --no-dev \
+    && php artisan package:discover --ansi
 
 # --- Stage 3: runtime image (php-fpm + nginx) ---
-FROM php:8.3-fpm-alpine
+# composer.lock resuelve varios componentes de Symfony 8.x que exigen PHP
+# >=8.4.1 (coincide con el PHP 8.4 que ya usa el entorno de desarrollo).
+FROM php:8.4-fpm-alpine
 
 RUN apk add --no-cache \
         nginx \

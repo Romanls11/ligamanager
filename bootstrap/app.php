@@ -16,6 +16,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
             'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
         ]);
+
+        // Detrás del proxy de Render (o cualquier PaaS similar) hay que confiar
+        // en los headers X-Forwarded-* para que Laravel detecte HTTPS bien.
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

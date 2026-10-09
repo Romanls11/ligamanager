@@ -6,8 +6,8 @@ delegados y árbitros trabajan desde su propio panel (pensado para celular);
 cualquier visitante puede consultar tablas de posiciones, calendario, goleo y
 liguilla sin necesidad de cuenta.
 
-Construido con **Laravel 11 + Blade + Tailwind** (sin Vue/Inertia), pensado
-para correr en hosting compartido sin workers de cola persistentes.
+Construido con **Laravel 11 + Blade + Bootstrap** (sin Vue/Inertia), pensado
+para correr sin workers de cola persistentes.
 
 ## Roles
 
@@ -45,7 +45,7 @@ manuales del admin:
 ## Stack
 
 - **Laravel 11** (PHP ^8.2), **MySQL**
-- **Blade + Tailwind** vía Laravel Breeze (sin Vue/Inertia)
+- **Blade + Bootstrap 5** vía Laravel Breeze (sin Vue/Inertia)
 - **spatie/laravel-permission** para roles
 - **barryvdh/laravel-dompdf** para recibos y estados de cuenta en PDF
 - Sin colas: `QUEUE_CONNECTION=sync`; lo único programado es un cron diario
@@ -105,6 +105,9 @@ solicitudes de alta.
 
 ## Despliegue
 
-Ver [`DEPLOYMENT.md`](DEPLOYMENT.md) para la guía completa de despliegue en
-hosting compartido (document root, `.env` de producción, cron, migraciones,
-`storage:link`, respaldos).
+- [`RENDER_DEPLOY.md`](RENDER_DEPLOY.md) — despliegue gratuito en **Render +
+  Aiven** vía Docker (la opción recomendada para un entorno de portafolio en
+  línea, con subdominio y HTTPS gratis).
+- [`DEPLOYMENT.md`](DEPLOYMENT.md) — guía alternativa para hosting compartido
+  tradicional tipo cPanel (document root, `.env` de producción, cron,
+  migraciones, `storage:link`, respaldos).
